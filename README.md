@@ -84,9 +84,35 @@ O jogo possui um motor flexível em `physics.js` que carrega diretamente imagens
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🚀 Como Publicar no Vercel (Passo a Passo)
 
-Como o jogo foi construído em puro **HTML5 + CSS3 + Vanilla JavaScript** sem dependências pesadas de compilação:
+O repositório local já está 100% configurado, testado e com commit inicial pronto na branch `main`.
+
+### Passo 1: Enviar para o seu GitHub
+No terminal desta pasta, conecte ao repositório que você criou:
+```bash
+git remote add origin https://github.com/<SEU_USUARIO_GITHUB>/Vivest-fighter.git
+git push -u origin main
+```
+*(Substitua `<SEU_USUARIO_GITHUB>` pelo seu login do GitHub)*
+
+### Passo 2: Conectar e Publicar no Vercel (1 minuto)
+1. Acesse **[vercel.com](https://vercel.com)** e faça login com seu GitHub.
+2. Clique no botão **"Add New..."** ➔ **"Project"**.
+3. Na lista de repositórios do seu GitHub, localize **`Vivest-fighter`** e clique em **"Import"**.
+4. Nas configurações do projeto:
+   - **Framework Preset:** `Other` (já detectado automaticamente)
+   - **Root Directory:** `./`
+   - O arquivo `vercel.json` e `package.json` já cuidam de tudo com zero build errors!
+5. Clique em **"Deploy"**.
+6. Em ~15 segundos, o Vercel gerará o link público (ex: `https://vivest-fighter.vercel.app`).
+7. **Copie o link e envie para o Matheus desestressar!** 🥊🔥
+
+---
+
+## 💻 Como Executar Localmente
+
+Como o jogo foi construído em puro **HTML5 + CSS3 + Vanilla JavaScript (Web Audio API / Canvas 2D)**:
 
 1. **Via Python:**
    ```bash
@@ -98,6 +124,3 @@ Como o jogo foi construído em puro **HTML5 + CSS3 + Vanilla JavaScript** sem de
    ```bash
    npx serve .
    ```
-
-3. **Subir na Web (para encaminhar o link para o Matheus):**
-   - Basta subir a pasta diretamente para o **GitHub Pages**, **Vercel** (`npx vercel`), ou **Netlify** com 1 clique (basta arrastar a pasta do projeto).
