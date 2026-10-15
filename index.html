@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vivest Fighters — A Guerra da Meta Atuarial</title>
+    <meta name="description" content="O jogo de luta arcade da equipe de investimentos da Vivest. Escolha seu analista ou estagiário e bata a meta atuarial!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Teko:wght@700&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="arcade-body">
+    <div class="cabinet-container">
+        <!-- Arcade Marquee Header -->
+        <header class="cabinet-marquee">
+            <div class="marquee-brand">
+                <span class="marquee-badge">VIVEST ARCADE</span>
+                <h1 class="marquee-title">VIVEST FIGHTERS</h1>
+                <span class="marquee-sub">ESTAG FIGHTERS EDITION</span>
+            </div>
+            
+            <div class="marquee-actions">
+                <button id="sound-toggle" class="arcade-tool-btn" title="Ligar/Desligar Som" aria-label="Ligar/Desligar Som">
+                    <span class="btn-icon">🔊</span>
+                    <span class="btn-text">SOM</span>
+                </button>
+                <button id="crt-toggle" class="arcade-tool-btn" title="Ligar/Desligar Efeito CRT" aria-label="Efeito CRT">
+                    <span class="btn-icon">📺</span>
+                    <span class="btn-text">CRT</span>
+                </button>
+                <button id="fullscreen-toggle" class="arcade-tool-btn" title="Tela Cheia" aria-label="Tela Cheia" onclick="document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()">
+                    <span class="btn-icon">⛶</span>
+                    <span class="btn-text">MAX</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Arcade CRT Screen -->
+        <main class="cabinet-screen-wrapper">
+            <div class="screen crt-active">
+                <div class="scanlines-layer"></div>
+                <div class="crt-glow-overlay"></div>
+                <canvas id="game-canvas" width="960" height="640" tabindex="0"></canvas>
+            </div>
+        </main>
+
+        <!-- Arcade Control Deck -->
+        <section class="cabinet-control-deck" aria-label="Painel de Controles Arcade">
+            <!-- Left Side: D-Pad / Joystick -->
+            <div class="stick-panel">
+                <div class="dpad-housing">
+                    <button id="pad-up" class="dpad-btn pad-up" aria-label="Pular">▲</button>
+                    <button id="pad-left" class="dpad-btn pad-left" aria-label="Esquerda">◀</button>
+                    <div class="dpad-center"></div>
+                    <button id="pad-right" class="dpad-btn pad-right" aria-label="Direita">▶</button>
+                    <button id="pad-down" class="dpad-btn pad-down" aria-label="Agachar">▼</button>
+                </div>
+                <div class="stick-label">
+                    <span class="key-hint">SETAS DO TECLADO</span>
+                    <span class="touch-hint">DIRECIONAL TOQUE</span>
+                </div>
+            </div>
+
+            <!-- Center Console Credit Status -->
+            <div class="cabinet-center-status">
+                <div class="coin-slot">
+                    <div class="slot-light"></div>
+                    <span class="slot-text">INSERT COIN</span>
+                </div>
+                <div class="credit-display">
+                    <span class="credit-led">CREDIT 01</span>
+                    <span class="faria-lima-badge">FARIA LIMA</span>
+                </div>
+            </div>
+
+            <!-- Right Side: 5 Arcade Action Buttons -->
+            <div class="action-buttons-panel">
+                <div class="arcade-buttons-row">
+                    <!-- Button A: Punch -->
+                    <button id="btn-punch" class="arcade-btn btn-red" aria-label="Soco - Tecla A">
+                        <span class="btn-cap"><kbd>A</kbd></span>
+                        <span class="btn-name">SOCO</span>
+                    </button>
+                    <!-- Button S: Kick -->
+                    <button id="btn-kick" class="arcade-btn btn-yellow" aria-label="Chute - Tecla S">
+                        <span class="btn-cap"><kbd>S</kbd></span>
+                        <span class="btn-name">CHUTE</span>
+                    </button>
+                    <!-- Button D: Special Move -->
+                    <button id="btn-special" class="arcade-btn btn-green" aria-label="Poder Especial - Tecla D">
+                        <span class="btn-cap"><kbd>D</kbd></span>
+                        <span class="btn-name">PODER</span>
+                    </button>
+                    <!-- Button Z: Block -->
+                    <button id="btn-block" class="arcade-btn btn-blue" aria-label="Defesa - Tecla Z">
+                        <span class="btn-cap"><kbd>Z</kbd></span>
+                        <span class="btn-name">DEFESA</span>
+                    </button>
+                    <!-- Button X: Super Attack -->
+                    <button id="btn-super" class="arcade-btn btn-purple" aria-label="Supremo - Tecla X">
+                        <span class="btn-cap"><kbd>X</kbd></span>
+                        <span class="btn-name">SUPREMO</span>
+                    </button>
+                </div>
+                <div class="buttons-hint">
+                    <span>TECLAS: <b>A</b> (Soco) | <b>S</b> (Chute) | <b>D</b> (Poder) | <b>Z</b> (Defesa) | <b>X</b> (Supremo) | <b>ENTER</b> (Start)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cabinet Footer Info -->
+        <footer class="cabinet-footer">
+            <p class="footer-team">
+                🎮 Criado especialmente para a equipe de Investimentos da Vivest: 
+                <strong>Rai</strong>, <strong>Max</strong>, <strong>Matheus</strong>, <strong>Stefano</strong>, 
+                <strong>Gabriela</strong>, <strong>Maycon</strong>, <strong>Alan</strong> e <strong>Luiza</strong>.
+            </p>
+            <p class="footer-sub">A meta atuarial vai dar combo! Desenvolvido para desestressar o Matheus.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="audio.js"></script>
+    <script src="fighters.js"></script>
+    <script src="stages.js"></script>
+    <script src="physics.js"></script>
+    <script src="ai.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

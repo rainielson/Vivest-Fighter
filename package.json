@@ -1,0 +1,13 @@
+{
+  "name": "vivest-fighters",
+  "version": "1.0.0",
+  "description": "Vivest Fighters: New Challengers — Street Fighter Arcade Edition",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Build complete - pure static game'",
+    "start": "npx serve ."
+  },
+  "keywords": ["street-fighter", "arcade", "vivest", "pixel-art", "game"],
+  "author": "Vivest Investment Team",
+  "license": "MIT"
+}
